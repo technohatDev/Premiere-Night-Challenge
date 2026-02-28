@@ -9,6 +9,7 @@ import { formatRuntime, getYear } from "@/utils/formatDate";
 import { getBackdropUrl, getPosterUrl } from "@/utils/imageUrl";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import { LinearGradient } from "expo-linear-gradient";
 import { useLocalSearchParams, useRouter } from "expo-router";
 
 export default function MovieDetailScreen() {
@@ -48,15 +49,14 @@ export default function MovieDetailScreen() {
 						<View className="h-full w-full bg-background-card" />
 					)}
 					{/* Dark fade overlay */}
-					<View
+					<LinearGradient
+						colors={["transparent", "#0F0F1A"]}
 						style={{
 							position: "absolute",
 							bottom: 0,
 							left: 0,
 							right: 0,
-							height: 120,
-							backgroundColor: "#0F0F1A",
-							opacity: 0.85
+							height: 120
 						}}
 					/>
 					{/* Back button */}
@@ -78,9 +78,8 @@ export default function MovieDetailScreen() {
 				<View className="-mt-16 flex-row px-4">
 					<Image
 						source={posterUrl}
-						style={{ width: 120, height: 180 }}
+						style={{ width: 120, height: 180, borderRadius: 12 }}
 						contentFit="cover"
-						className="rounded-xl"
 						placeholder={{ blurhash: "L6PZfSi_.AyE_3t7t7R**0o#DgR4" }}
 					/>
 					<View className="ml-4 flex-1 justify-end pb-1">

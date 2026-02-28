@@ -14,7 +14,8 @@ export default [
 		languageOptions: {
 			globals: {
 				...globals.node,
-				...globals.browser
+				...globals.browser,
+				__DEV__: "readonly"
 			},
 			ecmaVersion: 2020,
 			sourceType: "module"

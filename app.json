@@ -7,11 +7,7 @@
 		"orientation": "portrait",
 		"icon": "./assets/ios-light.png",
 		"userInterfaceStyle": "dark",
-		"splash": {
-			"image": "./assets/splash-icon.png",
-			"resizeMode": "contain",
-			"backgroundColor": "#0F0F1A"
-		},
+		"newArchEnabled": true,
 		"ios": {
 			"supportsTablet": true,
 			"bundleIdentifier": "com.ammartechno.premierenight",
@@ -27,6 +23,18 @@
 			},
 			"package": "com.ammartechno.premierenight"
 		},
-		"plugins": ["expo-image", "expo-router"]
+		"plugins": [
+			"expo-image",
+			"expo-router",
+			[
+				"expo-splash-screen",
+				{
+					"image": "./assets/splash-icon.png",
+					"imageWidth": 200,
+					"resizeMode": "contain",
+					"backgroundColor": "#0F0F1A"
+				}
+			]
+		]
 	}
 }

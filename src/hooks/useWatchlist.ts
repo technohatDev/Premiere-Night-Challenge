@@ -1,5 +1,6 @@
 import type { Movie } from "@/api/types";
 import { useWatchlistStore } from "@/store/watchlistStore";
+import * as Haptics from "expo-haptics";
 
 /** Convenience hook wrapping the Zustand watchlist store */
 export function useWatchlist() {
@@ -10,6 +11,7 @@ export function useWatchlist() {
 	const clearWatchlist = useWatchlistStore((s) => s.clearWatchlist);
 
 	const toggleWatchlist = (movie: Movie) => {
+		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => {});
 		if (isInWatchlist(movie.id)) {
 			removeFromWatchlist(movie.id);
 		} else {

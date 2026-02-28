@@ -137,6 +137,9 @@ npm run typecheck     # type check without emitting
 - Press animations on movie cards via Reanimated
 - Genre chip filtering
 - Custom app icons for iOS and Android
+- Haptic feedback on watchlist toggle (dev client builds)
+- Custom dev logger with color-coded output (`src/utils/logger.ts`)
+- Barrel exports (`index.ts`) across all `src/` subdirectories for clean imports
 
 ## AI Disclosure
 
