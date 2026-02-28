@@ -75,12 +75,21 @@ Expo Router v4 with file-based routing. Tab layout groups the two main screens (
 
 NativeWind v4 provides Tailwind utility classes in React Native. Custom colors are extended in the Tailwind config for a cohesive cinematic design system.
 
+### Error Handling
+
+Global error handling via React Query's `QueryCache` and `MutationCache`. All API errors surface automatically as toast notifications without per-component error wiring. Component-level `ErrorState` with retry is used for critical screens.
+
+### Environment Validation
+
+Environment variables are validated at startup using Zod schemas (`src/constants/env.ts`). Missing or invalid values surface immediately rather than causing silent runtime failures.
+
 ### Performance
 
 - `expo-image` for optimized image loading with caching and blurhash placeholders
 - `React.memo` on list items to prevent unnecessary re-renders
 - Debounced search input (300ms) to minimize API calls
 - FlatList optimizations (`getItemLayout`, `maxToRenderPerBatch`, `windowSize`)
+- React Query `gcTime` and `retry` configured via centralized constants
 
 ### Trade-offs & Assumptions
 

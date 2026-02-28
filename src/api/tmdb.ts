@@ -1,12 +1,11 @@
 import type { Genre, Movie, MovieDetails, TMDbPaginatedResponse } from "./types";
 
+import { env } from "@/constants/env";
 import { TMDB_BASE_URL } from "@/constants/tmdb";
-
-const API_KEY = process.env.EXPO_PUBLIC_TMDB_API_KEY;
 
 async function tmdbFetch<T>(endpoint: string, params?: Record<string, string>): Promise<T> {
 	const url = new URL(`${TMDB_BASE_URL}${endpoint}`);
-	url.searchParams.set("api_key", API_KEY ?? "");
+	url.searchParams.set("api_key", env.TMDB_API_KEY);
 	if (params) {
 		Object.entries(params).forEach(([key, value]) => {
 			url.searchParams.set(key, value);

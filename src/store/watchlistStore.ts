@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 import type { Movie } from "@/api/types";
+import { STORAGE_KEYS } from "@/constants/app";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface WatchlistStore {
@@ -34,7 +35,7 @@ export const useWatchlistStore = create<WatchlistStore>()(
 			clearWatchlist: () => set({ watchlist: [] })
 		}),
 		{
-			name: "watchlist-storage",
+			name: STORAGE_KEYS.WATCHLIST,
 			storage: createJSONStorage(() => AsyncStorage)
 		}
 	)

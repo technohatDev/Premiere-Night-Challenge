@@ -5,7 +5,7 @@
 		"scheme": "premiere-night",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/icon.png",
+		"icon": "./assets/ios-light.png",
 		"userInterfaceStyle": "dark",
 		"splash": {
 			"image": "./assets/splash-icon.png",
@@ -14,19 +14,18 @@
 		},
 		"ios": {
 			"supportsTablet": true,
-			"bundleIdentifier": "com.ammartechno.premierenight"
+			"bundleIdentifier": "com.ammartechno.premierenight",
+			"icon": {
+				"dark": "./assets/ios-dark.png",
+				"light": "./assets/ios-light.png"
+			}
 		},
 		"android": {
 			"adaptiveIcon": {
 				"backgroundColor": "#0F0F1A",
-				"foregroundImage": "./assets/android-icon-foreground.png",
-				"backgroundImage": "./assets/android-icon-background.png",
-				"monochromeImage": "./assets/android-icon-monochrome.png"
+				"foregroundImage": "./assets/android-adaptive.png"
 			},
 			"package": "com.ammartechno.premierenight"
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
 		},
 		"plugins": ["expo-image", "expo-router"]
 	}
