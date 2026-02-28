@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+
+FILE=$1
+MESSAGE=$(cat $FILE)
+
+# Check if HEAD is a symbolic ref (not during rebase/merge)
+if git symbolic-ref HEAD >/dev/null 2>&1; then
+  BRANCH_NAME=$(git symbolic-ref --short HEAD)
+  TICKET=[$(echo "$BRANCH_NAME" | grep -Eo '^(\w+/)?(\w+[-_])?[0-9]+' | grep -Eo '(\w+[-])?[0-9]+' | tr "[:lower:]" "[:upper:]")]
+  if [[ $TICKET == "[]" || "$MESSAGE" == "$TICKET"* ]];then
+    exit 0;
+  fi
+
+  FIRST_LETTER=$(echo "${MESSAGE:0:1}" | tr '[:lower:]' '[:upper:]')
+  LAST_LETTERS="${MESSAGE:1}"
+  NEW_MESSAGE="$FIRST_LETTER$LAST_LETTERS";
+
+  echo "$TICKET $NEW_MESSAGE" > $FILE
+else
+  # During rebase, merge, etc. - just exit successfully
+  exit 0
+fi
