@@ -136,6 +136,7 @@ npm run typecheck     # type check without emitting
 - Deep linking to specific movies (`premiere-night://movie/{id}`)
 - Press animations on movie cards via Reanimated
 - Genre chip filtering
+- Custom app icons for iOS and Android
 
 ## AI Disclosure
 
